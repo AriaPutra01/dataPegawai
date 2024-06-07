@@ -10,101 +10,34 @@
         Website Data Pegawai
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
-    <link href="{{ asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
-    <link href="{{ asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('template/assets/css/material-dashboard.css?v=3.1.0')}}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('template/assets/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-        <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{ route('adminDashboard') }}" target="_self">
-                <img src="{{ asset('template/assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold text-white">{{ Auth::user()->name }}</span>
-            </a>
-        </div>
-        <hr class="horizontal light mt-0 mb-2">
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('adminDashboard') }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white active" href="{{ route('pegawaiAdmin.index') }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">table_view</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Tabel Pegawai</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="{{ route('userAdmin.index') }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">table_view</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Tabel User</span>
-                    </a>
-                </li>
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Halaman Akun</h6>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="{{ route('profile.edit') }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">person</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Profile</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link class="nav-link text-white " :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">logout</i>
-                                <span class="nav-link-text ms-1">Log out</span>
-                            </div>
-                        </x-dropdown-link>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Halaman</a></li>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
+                                href="javascript:;">Halaman</a></li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tabel Pegawai</li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Ubah Data Pegawai</li>
-                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </a>
-                        </li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Admin</h6>
                 </nav>
@@ -118,45 +51,34 @@
         <div class="container-fluid py-4">
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
-                    <form action="{{ route('pegawaiAdmin.update', $pegawai->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('profileAdmin.store') }}" method="POST"
+                        enctype="multipart/form-data">
 
                         @csrf
-                        @method('PUT')
 
-                        <a href="{{ route('pegawaiAdmin.index') }}" class="btn btn-md btn-info">Kembali</a>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">FOTO</label>
-                            <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto">
+                            <input type="file" class="form-control @error('foto') is-invalid @enderror"
+                                name="foto">
 
                             <!-- error message untuk foto -->
                             @error('foto')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">NAMA</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama', $pegawai->nama) }}" placeholder="Masukkan Nama Anda">
-
-                            <!-- error message untuk nama -->
-                            @error('nama')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">ALAMAT</label>
-                            <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="5" placeholder="Masukkan Alamat Anda">{{ old('alamat',  $pegawai->alamat) }}</textarea>
+                            <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="5"
+                                placeholder="Masukkan Alamat Anda">{{ old('alamat') }}</textarea>
 
                             <!-- error message untuk alamat -->
                             @error('alamat')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
@@ -164,26 +86,31 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold">TEMPAT LAHIR</label>
-                                    <input type="text" class="form-control @error('tempatLahir') is-invalid @enderror" name="tempatLahir" value="{{ old('tempatLahir', $pegawai->tempatLahir) }}" placeholder="Masukkan Tempat Lahir Anda">
+                                    <input type="text"
+                                        class="form-control @error('tempatLahir') is-invalid @enderror"
+                                        name="tempatLahir" value="{{ old('tempatLahir') }}"
+                                        placeholder="Masukkan Tempat Lahir Anda">
 
                                     <!-- error message untuk tempatLahir -->
                                     @error('tempatLahir')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold">TANGGAL LAHIR</label>
-                                    <input type="date" class="form-control @error('tglLahir') is-invalid @enderror" name="tglLahir" value="{{ old('tglLahir', $pegawai->tglLahir) }}" placeholder="Masukkan Tanggal Lahir Anda">
+                                    <input type="date" class="form-control @error('tglLahir') is-invalid @enderror"
+                                        name="tglLahir" value="{{ old('tglLahir') }}"
+                                        placeholder="Masukkan Tanggal Lahir Anda">
 
                                     <!-- error message untuk tglLahir -->
                                     @error('tglLahir')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -193,35 +120,51 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold">JENIS KELAMIN</label>
-                                    <select class="form-select @error('kelamin') is-invalid @enderror" name="kelamin" aria-label="Default select example">
-                                        <option value="" disabled {{ old('kelamin', $pegawai->kelamin) ? '' : 'selected' }}>Pilih Jenis Kelamin Anda</option>
-                                        <option value="Laki-Laki" {{ old('kelamin', $pegawai->kelamin) == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                        <option value="Perempuan" {{ old('kelamin', $pegawai->kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                    <select class="form-select @error('kelamin') is-invalid @enderror" name="kelamin"
+                                        aria-label="Default select example">
+                                        <option value="" disabled
+                                            {{ old('kelamin') ? '' : 'selected' }}>Pilih Jenis Kelamin
+                                            Anda</option>
+                                        <option value="Laki-Laki"
+                                            {{ old('kelamin') == 'Laki-Laki' ? 'selected' : '' }}>
+                                            Laki-Laki</option>
+                                        <option value="Perempuan"
+                                            {{ old('kelamin') == 'Perempuan' ? 'selected' : '' }}>
+                                            Perempuan</option>
                                     </select>
 
                                     <!-- error message untuk kelamin -->
                                     @error('kelamin')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold">JABATAN</label>
-                                    <select class="form-select @error('jabatan') is-invalid @enderror" name="jabatan" aria-label="Default select example">
-                                        <option value="" disabled {{ old('jabatan', $pegawai->jabatan) ? '' : 'selected' }}>Pilih Jabatan Anda</option>
-                                        <option value="kepala Sekolah" {{ old('jabatan', $pegawai->jabatan) == 'kepala Sekolah' ? 'selected' : '' }}>Kepala Sekolah</option>
-                                        <option value="staff" {{ old('jabatan', $pegawai->jabatan) == 'staff' ? 'selected' : '' }}>Staff</option>
-                                        <option value="guru" {{ old('jabatan', $pegawai->jabatan) == 'guru' ? 'selected' : '' }}>Guru</option>
+                                    <select class="form-select @error('jabatan') is-invalid @enderror" name="jabatan"
+                                        aria-label="Default select example">
+                                        <option value="" disabled
+                                            {{ old('jabatan') ? '' : 'selected' }}>Pilih Jabatan Anda
+                                        </option>
+                                        <option value="kepala Sekolah"
+                                            {{ old('jabatan') == 'kepala Sekolah' ? 'selected' : '' }}>
+                                            Kepala Sekolah</option>
+                                        <option value="staff"
+                                            {{ old('jabatan') == 'staff' ? 'selected' : '' }}>Staff
+                                        </option>
+                                        <option value="guru"
+                                            {{ old('jabatan') == 'guru' ? 'selected' : '' }}>Guru
+                                        </option>
                                     </select>
 
                                     <!-- error message untuk jabatan -->
                                     @error('jabatan')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -229,24 +172,27 @@
 
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">MULAI MASUK</label>
-                            <input type="date" class="form-control @error('mulaiMasuk') is-invalid @enderror" name="mulaiMasuk" value="{{ old('mulaiMasuk', $pegawai->mulaiMasuk) }}" placeholder="Masukkan Tanggal Masuk Kerja Anda">
+                            <input type="date" class="form-control @error('mulaiMasuk') is-invalid @enderror"
+                                name="mulaiMasuk" value="{{ old('mulaiMasuk') }}"
+                                placeholder="Masukkan Tanggal Masuk Kerja Anda">
 
                             <!-- error message untuk mulaiMasuk -->
                             @error('mulaiMasuk')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">JOB DESC</label>
-                            <textarea class="form-control @error('job') is-invalid @enderror" name="job" rows="5" placeholder="Masukkan Job Anda">{{ old('job', $pegawai->job) }}</textarea>
+                            <textarea class="form-control @error('job') is-invalid @enderror" name="job" rows="5"
+                                placeholder="Masukkan Job Anda">{{ old('job') }}</textarea>
 
                             <!-- error message untuk job -->
                             @error('job')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 
@@ -261,11 +207,13 @@
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-6 mb-lg-0 mb-4">
                             <div class="copyright text-center text-sm text-muted text-lg-start">
-                                © <script>
+                                ©
+                                <script>
                                     document.write(new Date().getFullYear())
                                 </script>,
                                 dibuat dengan <i class="fa fa-heart"></i> oleh
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Aria Saputra</a>
+                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Aria
+                                    Saputra</a>
                                 untuk website yang kece.
                             </div>
                         </div>
@@ -301,12 +249,18 @@
                 </div>
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors my-2 text-start">
-                        <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-primary active" data-color="primary"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-dark" data-color="dark"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-info" data-color="info"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-success" data-color="success"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-warning" data-color="warning"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-danger" data-color="danger"
+                            onclick="sidebarColor(this)"></span>
                     </div>
                 </a>
                 <!-- Sidenav Type -->
@@ -315,22 +269,27 @@
                     <p class="text-sm">Pilih tema dashboard anda</p>
                 </div>
                 <div class="d-flex">
-                    <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+                    <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
+                        onclick="sidebarType(this)">Dark</button>
+                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
+                        onclick="sidebarType(this)">Transparent</button>
+                    <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
+                        onclick="sidebarType(this)">White</button>
                 </div>
                 <!-- Navbar Fixed -->
                 <div class="mt-3 d-flex">
                     <h6 class="mb-0">Navbar Fixed</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                            onclick="navbarFixed(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-3">
                 <div class="mt-2 d-flex">
                     <h6 class="mb-0">Light / Dark</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
+                            onclick="darkMode(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-sm-4">

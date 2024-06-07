@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified', 'supervisor'])->group(function () {
     Route::get('/supervisorDashboard', [\App\Http\Controllers\DashboardSupervisorController::class, 'index'])->name('supervisorDashboard');
     // tabel user supervisor
     Route::resource('/userSupervisor', \App\Http\Controllers\UserSupervisorController::class);
-    // tabel pegawai supervisor  
+    // tabel pegawai supervisor
     Route::resource('pegawaiSupervisor', \App\Http\Controllers\PegawaiSupervisorController::class);
 });
 
@@ -28,6 +28,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('pegawaiAdmin', \App\Http\Controllers\PegawaiAdminController::class);
     // tabel user admin
     Route::resource('/userAdmin', \App\Http\Controllers\UserAdminController::class);
+    // update profile wajib
+    Route::get('/profileAdmin', [\App\Http\Controllers\ProfileAdminController::class, 'create'])->name('profileAdmin.create');
+    Route::post('/profileAdmin', [\App\Http\Controllers\ProfileAdminController::class, 'store'])->name('profileAdmin.store');
 });
 
 // profile

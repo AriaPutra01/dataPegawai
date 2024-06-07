@@ -25,11 +25,11 @@ class Admin
         }
 
         if($userRole=='supervisor'){
-            return redirect()->route('supervisorDashboard');
+            return redirect()->route('profileSupervisor.create');
         }
 
         if($userRole=='user'){
-            return redirect()->route('userDashboard');
+            return redirect()->route('profileUser.create');
         }
     }
 }
